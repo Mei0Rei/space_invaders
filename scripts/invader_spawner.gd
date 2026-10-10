@@ -59,12 +59,17 @@ func spawnInvaders():
 	destroyedInvaderCount = 0
 	totalCount = 0
 	movedirection = 1
+	var screenWidth = get_viewport_rect().size.x
+	var halfWidth = screenWidth / 2 - 25
 	for row in rows:
 		var startx = START_X
 		var randomNum = randi_range(3, 6)
+		if first_round == false:
+			cols = randi_range(7, 12)
 		for col in cols:
+			var x = halfWidth - cols / 2 * 24 + col * HORIZSPACE
 			if rows > 3:
-				var x = startx + (col * 24 * 1.5) + (col * HORIZSPACE)
+				# var x = startx + (col * 24 * 1.5) + (col * HORIZSPACE)
 				var y = STARTY + (row * 24 ) + (row * VERTSPACE)
 				var type = 10
 				if row == 0:
@@ -73,7 +78,7 @@ func spawnInvaders():
 					type = 20
 				spawnInvader(Vector2(x, y), type)
 			elif rows == 3:
-				var x = startx + (col * 24 * 1.5) + (col * HORIZSPACE)
+				# var x = startx + (col * 24 * 1.5) + (col * HORIZSPACE)
 				var y = STARTY + (row * 24 ) + (row * VERTSPACE)
 				var type = 10
 				if row == 0:
@@ -85,7 +90,7 @@ func spawnInvaders():
 				else:
 					spawnInvader(Vector2(x, y), aln_types.pick_random())
 			else:
-				var x = startx + (col * 24 * 1.5) + (col * HORIZSPACE)
+				# var x = startx + (col * 24 * 1.5) + (col * HORIZSPACE)
 				var y = STARTY + (row * 24 ) + (row * VERTSPACE)
 				spawnInvader(Vector2(x, y), aln_types.pick_random())
 		await get_tree().create_timer(0.2).timeout
@@ -95,7 +100,6 @@ func spawnInvaders():
 	if first_round == true:
 		first_round = false
 	rows = randi_range(1, 5)
-	cols = randi_range(7, 12)
 
 
 func shootLaser():
