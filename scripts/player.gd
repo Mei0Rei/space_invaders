@@ -12,13 +12,7 @@ signal playerDestroyed
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	print("speed:",speed)
 	shipX = collision_shape_2d.shape.get_rect().size.x
-	#var rect = get_viewport().get_visible_rect()
-	#var camera = get_viewport().get_camera_2d()
-	#var camPos = camera.position
-	#startBound = 0 #camPos.x - rect.size.x / 2
-	#endBound = #camPos.x + rect.size.x / 2
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

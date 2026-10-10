@@ -18,7 +18,7 @@ func _process(delta: float) -> void:
 func increaseScore(points: int):
 	score += points
 	Globals.total_score = score
-	print("Score = ",score)
+	# print("Score = ",score)
 	var text_score = str(score)
 	score_text.set_text(text_score) # this has a slight lag but
 	# seems to work fine asides from that

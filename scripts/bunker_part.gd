@@ -13,7 +13,6 @@ func _process(_delta: float) -> void:
 	pass
 
 func on_area_entered(area):
-	# print("bunker hit registered")
 	if area is Laser || area is enemyLaser:
 		area.queue_free()
 		if damage < MAX_DAMAGE:
